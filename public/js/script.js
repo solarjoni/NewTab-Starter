@@ -31,8 +31,21 @@
 
     // up to you to implement!
 
-  }
+    let location = Utils.readObject("location");
+    if (location == null) {
+      location = prompt("Where are you, my friend?")
+      Utils.saveObject("location", location)
+    }
 
+    let weather = await Utils.getWeather(location);
+    console.log(weather);
+
+       
+    insertIt();
+    function insertIt() {
+      document.getElementById("weather").innerHTML = `<br>Weather: ${weather.condition.text}<br><img src="${weather.condition.icon}" width="35px" />`;
+  }
+  }
   loadWeather();
 
 })();
@@ -61,7 +74,8 @@ function insertinDom() {
   document.getElementById(
     "date"
   ).innerHTML = `${tab.dateDetails.day}, ${tab.dateDetails.month} ${tab.dateDetails.date}`;
-}
+ }
+
 function getdateDetails() {
   var today = new Date();
   var day = today.getDay();
