@@ -9,6 +9,7 @@
  * AUTHOR: @itsmingjie
  */
 
+const WEATHER_API_KEY = '6e78a8f693744bb6878174604212607';
 // const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 
 class Utils {
@@ -47,7 +48,8 @@ class Utils {
 
     /** Easy API wrapper to handle weather services */
   static getWeather = (location) => {
-    const key = process.env['WEATHER_API_KEY'];
+    // const key = process.env['WEATHER_API_KEY'];
+    const key = WEATHER_API_KEY;
     console.log(key);
     return new Promise((resolve, reject) => {
       let response = 

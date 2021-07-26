@@ -38,12 +38,13 @@
     }
 
     let weather = await Utils.getWeather(location);
+    console.log(location);
     console.log(weather);
 
        
     insertIt();
     function insertIt() {
-      document.getElementById("weather").innerHTML = `<br>Weather: ${weather.condition.text}<br><img src="${weather.condition.icon}" width="35px" />`;
+      document.getElementById("weather").innerHTML = `<br>${location}<br><br>Weather: ${weather.condition.text}<br><img src="${weather.condition.icon}" width="35px" />`;
   }
   }
   loadWeather();
